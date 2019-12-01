@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @membership.store_id %>
+</p>
+
+<p>
+  <strong>Isrenewable:</strong>
+  <%= @membership.isRenewable %>
+</p>
+
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>
