@@ -10,23 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_132247) do
+ActiveRecord::Schema.define(version: 2019_12_03_030225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "malls", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "memberships", force: :cascade do |t|
-    t.bigint "store_id", null: false
-    t.boolean "isRenewable"
+    t.string "store"
+    t.boolean "isRenewable", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["store_id"], name: "index_memberships_on_store_id"
   end
 
   create_table "memberships_users", force: :cascade do |t|
@@ -34,17 +27,12 @@ ActiveRecord::Schema.define(version: 2019_12_01_132247) do
     t.bigint "membership_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
+    t.integer "points"
+    t.string "rewards"
+    t.string "store"
     t.index ["membership_id"], name: "index_memberships_users_on_membership_id"
     t.index ["user_id"], name: "index_memberships_users_on_user_id"
-  end
-
-  create_table "stores", force: :cascade do |t|
-    t.string "name"
-    t.string "image_url"
-    t.bigint "mall_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["mall_id"], name: "index_stores_on_mall_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,8 +48,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_132247) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "memberships", "stores"
   add_foreign_key "memberships_users", "memberships"
   add_foreign_key "memberships_users", "users"
-  add_foreign_key "stores", "malls"
 end
