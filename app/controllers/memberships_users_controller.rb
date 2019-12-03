@@ -19,18 +19,20 @@ class MembershipsUsersController < ApplicationController
   # GET /memberships_users/new
   def new
     @memberships_user = MembershipsUser.new
+    @memberships = Membership.all
   end
 
   # GET /memberships_users/1/edit
   def edit
     @memberships_user = MembershipsUser.find(params[:id])
+    @memberships = Membership.all
   end
 
   # POST /memberships_users
   # POST /memberships_users.json
   def create
     @memberships_user = MembershipsUser.new(memberships_user_params)
-    @memberships_user.membership_id = 2
+    # @memberships_user.membership_id = 2
     @memberships_user.user_id = current_user.id
 
     # @memberships = Membership.all
@@ -88,6 +90,7 @@ class MembershipsUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def memberships_user_params
-      params.require(:memberships_user).permit(:store, :status, :points, :rewards, :membership_id)
+      # params.require(:memberships_user).permit(:store, :status, :points, :rewards, :membership_id)
+      params.require(:memberships_user).permit(:status, :points, :rewards, :membership_id)
     end
 end
