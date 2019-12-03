@@ -1,6 +1,16 @@
-<h1>Editing Memberships User</h1>
+<div class="container w-75">
+    <h1 class="pt-5">Edit Membership Card Details</h1>
 
-<%= render 'form', memberships_user: @memberships_user %>
+    <div class="card w-75 mx-auto mt-4">
+        <img class="card-img" src="..." alt="-- Membership Card -- " />
+        <div class="card-body"> <!-- Generate barcode "https://binarapps.com/blog/handling-barcodes-in-rails-app/" -->
+            <h5 class="card-title">||||||||||||||||||||||||</h5>
+            <p class="card-text">-- Membership Card No. --</p>
+        </div>
+    </div>
+
+    <%= render 'form', memberships_user: @memberships_user %>
+</div>
 
 <%= link_to 'Show', @memberships_user %> |
 <%= link_to 'Back', memberships_users_path %>

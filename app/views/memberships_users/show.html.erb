@@ -1,14 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container w-75">
+    <h1 class="pt-5">Membership Card Details</h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @memberships_user.user_id %>
-</p>
+    <div class="card w-75 mx-auto mt-4">
+        <img class="card-img" src="..." alt="-- Membership Card -- " />
+        <div class="card-body"> <!-- Generate barcode "https://binarapps.com/blog/handling-barcodes-in-rails-app/" -->
+            <h5 class="card-title">||||||||||||||||||||||||</h5>
+            <p class="card-text">-- Membership Card No. --</p>
+        </div>
+    </div>
 
-<p>
-  <strong>Membership:</strong>
-  <%= @memberships_user.membership_id %>
-</p>
+    <table class="table table-bordered mt-4 w-75 mx-auto">
+        <tbody>
+            <tr>
+                <td class="text-left"><strong>Store Name</strong></td>
+                <td class="text-left"><%= @memberships_user.store %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Status</strong></td>
+                <td class="text-left"><%= @memberships_user.status %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Points</strong></td>
+                <td class="text-left"><%= @memberships_user.points %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Rewards</strong></td>
+                <td class="text-left"><%= @memberships_user.rewards %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <%= link_to 'Edit', edit_memberships_user_path(@memberships_user) %> |
 <%= link_to 'Back', memberships_users_path %>

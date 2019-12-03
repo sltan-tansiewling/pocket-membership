@@ -14,7 +14,6 @@
   <tbody>
     <% @memberships.each do |membership| %>
       <tr>
-        <td><%= membership.store_id %></td>
         <td><%= membership.isRenewable %></td>
         <td><%= link_to 'Show', membership %></td>
         <td><%= link_to 'Edit', edit_membership_path(membership) %></td>

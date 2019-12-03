@@ -1,29 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container w-75">
+    <h1 class="pt-5">Your Memberships</h1>
 
-<h1>Memberships Users</h1>
+    <div class="text-right">
+        <%= link_to '+ Add New Membership', new_memberships_user_path %>
+    </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Membership</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @memberships_users.each do |memberships_user| %>
-      <tr>
-        <td><%= memberships_user.user_id %></td>
-        <td><%= memberships_user.membership_id %></td>
-        <td><%= link_to 'Show', memberships_user %></td>
-        <td><%= link_to 'Edit', edit_memberships_user_path(memberships_user) %></td>
-        <td><%= link_to 'Destroy', memberships_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Memberships User', new_memberships_user_path %>
+<% @memberships_users.each do |memberships_user| %>
+    <div class="card w-75 mx-auto mt-4 border border-warning">
+        <!--<img class="card-img" src="..." alt="<%= memberships_user.membership.store %>">-->
+        <div class="card-body"> <!-- Add in 'card-img-overlay' -->
+            <h5 class="card-title"><%= memberships_user.store %></h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <%= link_to 'Show', memberships_user %>
+        </div>
+    </div>
+<% end %>

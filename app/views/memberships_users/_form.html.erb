@@ -1,27 +1,23 @@
 <%= form_with(model: memberships_user, local: true) do |form| %>
-  <% if memberships_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(memberships_user.errors.count, "error") %> prohibited this memberships_user from being saved:</h2>
-
-      <ul>
-        <% memberships_user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :membership_id %>
-    <%= form.text_field :membership_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <table class="table table-bordered mt-4 w-75 mx-auto">
+        <tbody>
+            <tr>
+                <td class="text-left"><strong>Store Name</strong></td>
+                <td class="text-left"><%= form.text_field :store, :class => "w-100" %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Status</strong></td>
+                <td class="text-left"><%= form.text_field :status, :class => "w-100" %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Points</strong></td>
+                <td class="text-left"><%= form.text_field :points, :class => "w-100" %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Rewards</strong></td>
+                <td class="text-left"><%= form.text_field :rewards, :class => "w-100" %></td>
+            </tr>
+        </tbody>
+    </table>
+    <%= form.submit ({:class => "btn"}) %>
 <% end %>
