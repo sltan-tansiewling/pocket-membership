@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'onepage#index'
+  root 'memberships_users#index'
   resources :memberships_users
   resources :memberships
   resources :stores
