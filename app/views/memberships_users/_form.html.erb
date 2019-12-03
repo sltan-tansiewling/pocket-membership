@@ -3,7 +3,7 @@
         <tbody>
             <tr>
                 <td class="text-left"><strong>Store Name</strong></td>
-                <td class="text-left"><%= form.text_field :store, :class => "w-100" %></td>
+                <td class="text-left"><%= form.collection_select :membership_id, @memberships, :id, :store %></td>
             </tr>
             <tr>
                 <td class="text-left"><strong>Status</strong></td>
@@ -19,5 +19,5 @@
             </tr>
         </tbody>
     </table>
-    <%= form.submit ({:class => "btn"}) %>
+    <%= form.submit "Save", ({:class => "btn"}) %>
 <% end %>
