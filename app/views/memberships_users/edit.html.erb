@@ -4,12 +4,34 @@
     <div class="card w-75 mx-auto mt-4">
         <img class="card-img" src="..." alt="-- Membership Card -- " />
         <div class="card-body"> <!-- Generate barcode "https://binarapps.com/blog/handling-barcodes-in-rails-app/" -->
-            <h5 class="card-title">||||||||||||||||||||||||</h5>
+            <h5 class="card-title"><a href="<%= new_membership_path %>">||||||||||||||||||||||||</a></h5>
             <p class="card-text">-- Membership Card No. --</p>
         </div>
     </div>
 
-    <%= render 'form', memberships_user: @memberships_user %>
+    <%= form_with(scope: :memberships_user, model: @memberships_user, local: true) do |form| %>
+    <table class="table table-bordered mt-4 w-75 mx-auto">
+        <tbody>
+            <tr>
+                <td class="text-left"><strong>Store Name</strong></td>
+                <td class="text-left"><%= @memberships_user.membership.store %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Status</strong></td>
+                <td class="text-left"><%= form.text_field :status, :class => "w-100" %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Points</strong></td>
+                <td class="text-left"><%= form.text_field :points, :class => "w-100" %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Rewards</strong></td>
+                <td class="text-left"><%= form.text_field :rewards, :class => "w-100" %></td>
+            </tr>
+        </tbody>
+    </table>
+    <%= form.submit "Save", ({:class => "btn"}) %>
+<% end %>
 </div>
 
 <%= link_to 'Show', @memberships_user %> |
