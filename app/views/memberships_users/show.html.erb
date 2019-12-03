@@ -4,7 +4,7 @@
     <div class="card w-75 mx-auto mt-4">
         <img class="card-img" src="..." alt="-- Membership Card -- " />
         <div class="card-body"> <!-- Generate barcode "https://binarapps.com/blog/handling-barcodes-in-rails-app/" -->
-            <h5 class="card-title">||||||||||||||||||||||||</h5>
+            <h5 class="card-title"><a href="<%= new_membership_path %>">||||||||||||||||||||||||</a></h5>
             <p class="card-text">-- Membership Card No. --</p>
         </div>
     </div>
@@ -13,7 +13,7 @@
         <tbody>
             <tr>
                 <td class="text-left"><strong>Store Name</strong></td>
-                <td class="text-left"><%= @memberships_user.store %></td>
+                <td class="text-left"><%= @memberships_user.membership.store %></td>
             </tr>
             <tr>
                 <td class="text-left"><strong>Status</strong></td>
