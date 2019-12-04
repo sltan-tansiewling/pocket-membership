@@ -12,9 +12,9 @@
 # end
 
 # Reference from: https://medium.com/@pk60905/use-carrierwave-to-upload-files-to-s3-81ce79c29b6d
-require ‘carrierwave/storage/abstract’
-require ‘carrierwave/storage/file’
-require ‘carrierwave/storage/fog’
+# require ‘carrierwave/storage/abstract’
+# require ‘carrierwave/storage/file’
+# require ‘carrierwave/storage/fog’
 
 CarrierWave.configure do |config|
   if Rails.env.staging? || Rails.env.production?
