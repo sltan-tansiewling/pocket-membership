@@ -55,3 +55,5 @@ gem "devise", "~> 4.7"
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'carrierwave', '~> 1.3.1'
+gem 'figaro'
+gem "fog-aws"
