@@ -13,7 +13,7 @@ class MembershipsUsersController < ApplicationController
   # GET /memberships_users/1
   # GET /memberships_users/1.json
   def show
-    # @memberships_user = MembershipsUser.find(params[:id])
+    @memberships_user = MembershipsUser.find(params[:id])
   end
 
   # GET /memberships_users/new
@@ -90,7 +90,6 @@ class MembershipsUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def memberships_user_params
-      # params.require(:memberships_user).permit(:store, :status, :points, :rewards, :membership_id)
-      params.require(:memberships_user).permit(:status, :points, :rewards, :membership_id)
+      params.require(:memberships_user).permit(:image, :image_back, :status, :points, :rewards, :membership_id)
     end
 end
