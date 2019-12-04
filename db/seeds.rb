@@ -7,14 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if User.count == 0
-    User.create(name: 'Always Siew Ling', email: 'always_sltan@email.com', password: '123456');
+    User.create(name: 'Siew Ling', email: 'sltan@email.com', password: '123456');
 else
     puts "User sample data already exists"
 end
 
 if Membership.count == 0
-    Membership.create(store: 'Bossini', isRenewable: false);
-    Membership.create(store: 'Watsons', isRenewable: true);
+    Membership.create(store: 'Bossini');
+    Membership.create(store: 'Watsons');
+    Membership.create(store: 'NTUC');
+    Membership.create(store: 'BHG');
+    Membership.create(store: 'Skechers');
 else
      puts "Membership sample data already exists"
 end
