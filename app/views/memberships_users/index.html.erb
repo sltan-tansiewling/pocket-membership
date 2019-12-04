@@ -19,7 +19,9 @@
                         </div>
 
                         <div class="flip-card-back">
-                            <img class="card-img-top" src="<%= memberships_user.image_back.url %>" alt="<%= memberships_user.membership.store %>">
+                            <a href="<%= edit_memberships_user_path(memberships_user.id) %>">
+                                <img class="card-img-top" src="<%= memberships_user.image_back.url %>" alt="<%= memberships_user.membership.store %>">
+                            </a>
                         </div>
                     </div>
                 </div>
