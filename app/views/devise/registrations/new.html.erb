@@ -1,53 +1,64 @@
 <div class="bg">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col py-5">
+        <div class="row align-items-center mt-5">
+            <div class="col col-md-6">
                 <h1>Pocket Membership</h1>
                 <p>Hold all your membership accounts in one!</p>
             </div>
 
-            <div class="col py-5 form">
-                <h2>Sign up</h2>
-
+            <div class="col col-md-6">
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                  <%= render "devise/shared/error_messages", resource: resource %>
 
-                  <div class="row">
-                        <div class="col col-md-6 pl-3">
-                            <%= f.label :email %>
+                    <div class="container border rounded mt-5 new-session-form">
+                        <div class="row">
+                            <div class="col col-md-6 pt-3 login-tab-inactive">
+                                <h5><a href="<%= new_user_session_path %>" class="default-link-color">Login</a></h5>
+                            </div>
+                            <div class="col col-md-6 pt-3">
+                                <h5>Sign Up</h5>
+                            </div>
                         </div>
-                        <div class="col col-md-6 pl-3">
-                            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                        </div>
-                  </div>
 
-                  <div class="row">
-                        <div class="col col-md-6 pl-3">
-                            <%= f.label :password %>
-                            <% if @minimum_password_length %>
-                                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                            <% end %>
+                        <div class="row pt-3">
+                            <div class="col col-md-6 text-left">
+                                <%= f.label :email %>
+                            </div>
+                            <div class="col col-md-6 text-left">
+                                <%= f.email_field :email, ({:class => "w-100"}) %>
+                            </div>
                         </div>
-                        <div class="col col-md-6 pl-3">
-                            <%= f.password_field :password, autocomplete: "new-password" %>
-                        </div>
-                  </div>
 
-                  <div class="row">
-                        <div class="col col-md-6 pl-3">
-                            <%= f.label :password_confirmation %>
+                        <div class="row pt-3">
+                            <div class="col col-md-6 text-left">
+                                <%= f.label :password %>
+                            </div>
+                            <div class="col col-md-6 text-left">
+                                <%= f.password_field :password, ({:class => "w-100"}) %>
+                                <% if @minimum_password_length %>
+                                    <small class="form-text text-muted">Minimum <%= @minimum_password_length %> Characters</small>
+                                <% end %>
+                            </div>
                         </div>
-                        <div class="col col-md-6 pl-3">
-                            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-                        </div>
-                  </div>
 
-                  <div class="actions">
-                    <%= f.submit "Sign up" %>
-                  </div>
+                        <div class="row pt-3">
+                            <div class="col col-md-6 text-left">
+                                <%= f.label :password_confirmation %>
+                            </div>
+                            <div class="col col-md-6 text-left">
+                                <%= f.password_field :password_confirmation, ({:class => "w-100"}) %>
+                            </div>
+                        </div>
+
+                        <div class="row py-3">
+                            <div class="col col-md-4"></div>
+                            <div class="col col-md-8 text-left">
+                                <div class="actions">
+                                    <%= f.submit "Sign Up", ({:class => "btn w-50"}) %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <% end %>
-
-                <%= render "devise/shared/links" %>
             </div>
         </div>
     </div>

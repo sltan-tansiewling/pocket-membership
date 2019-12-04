@@ -45,3 +45,26 @@
   // color: white;
   transform: rotateY(180deg);
 }
+
+.new-session-form {
+    border: 2px solid #fa76a0 !important;
+}
+
+.signup-tab-inactive {
+    background-color: #fa76a0;
+    color: #FFFFFF;
+    border-bottom: 2px solid #fa76a0 !important;
+    border-left: 2px solid #fa76a0 !important;
+}
+
+.login-tab-inactive {
+    background-color: #fa76a0;
+    color: #FFFFFF;
+    border-bottom: 2px solid #fa76a0 !important;
+    border-right: 2px solid #fa76a0 !important;
+}
+
+.default-link-color, .default-link-color:hover, .btn:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
