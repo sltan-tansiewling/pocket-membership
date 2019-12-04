@@ -1,15 +1,9 @@
 <div class="container w-75">
     <h1 class="pt-5">Membership Card Details</h1>
 
-    <div class="card w-75 mx-auto mt-4">
-        <img class="card-img" src="..." alt="-- Membership Card -- " />
-        <div class="card-body"> <!-- Generate barcode "https://binarapps.com/blog/handling-barcodes-in-rails-app/" -->
-            <h5 class="card-title"><a href="<%= new_membership_path %>">||||||||||||||||||||||||</a></h5>
-            <p class="card-text">-- Membership Card No. --</p>
-        </div>
-    </div>
+    <%= render 'card' %>
 
-    <table class="table table-bordered mt-4 w-75 mx-auto">
+    <table class="table table-bordered mt-4 mx-auto">
         <tbody>
             <tr>
                 <td class="text-left"><strong>Store Name</strong></td>

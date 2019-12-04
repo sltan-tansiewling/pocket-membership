@@ -1,17 +1,59 @@
 <div class="container w-75">
-    <h1 class="pt-5">Your Memberships</h1>
+    <h1 class="pt-5">Your Membership Cards</h1>
+    <p>Click on each card to reveal the barcode.</p>
 
     <div class="text-right">
         <%= link_to '+ Add New Membership', new_memberships_user_path %>
     </div>
-</div>
 
-<% @memberships_users.each do |memberships_user| %>
-    <div class="card w-75 mx-auto mt-4 border border-warning">
-        <!--<img class="card-img" src="..." alt="<%= memberships_user.membership.store %>">-->
-        <div class="card-body"> <!-- Add in 'card-img-overlay' -->
-            <h5 class="card-title"><%= memberships_user.membership.store %></h5>
-            <%= link_to 'Show', memberships_user %>
+<% if @memberships_users.length > 0 %>
+    <% @memberships_users.each do |memberships_user| %>
+        <div class="col-md-8 mx-auto">
+
+            <div class="card mx-auto mt-4 border border-warning">
+
+                <div class="flip-card mx-auto pt-3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img class="card-img-top" src="<%= memberships_user.image.url %>" alt="<%= memberships_user.membership.store %>">
+                        </div>
+
+                        <div class="flip-card-back">
+                            <img class="card-img-top" data-toggle="modal" data-target="#addPointsModal" src="<%= memberships_user.image_back.url %>" alt="<%= memberships_user.membership.store %>">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title"><%= memberships_user.membership.store %></h5>
+                    <%= link_to 'View Details', memberships_user %>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="addPointsModal" tabindex="-1" role="dialog" aria-labelledby="addPointsModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addPointsModalLabel"><%= memberships_user.membership.store %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <% end %>
+<% else %>
+    <p>You have no membership cards.</p>
 <% end %>
+</div>

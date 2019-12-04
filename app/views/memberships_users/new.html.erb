@@ -2,8 +2,16 @@
     <h1 class="pt-5">New Membership Card</h1>
 
     <%= form_with(scope: :memberships_user, url: memberships_users_path, local: true) do |form| %>
-    <table class="table table-bordered mt-4 w-75 mx-auto">
+    <table class="table table-bordered mt-4 mx-auto">
         <tbody>
+            <tr>
+                <td class="text-left"><strong>Card Image (Front)</strong></td>
+                <td class="text-left"><%= form.file_field :image %></td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Card Image (Back)</strong></td>
+                <td class="text-left"><%= form.file_field :image_back %></td>
+            </tr>
             <tr>
                 <td class="text-left"><strong>Store Name</strong></td>
                 <td class="text-left"><%= form.collection_select :membership_id, @memberships, :id, :store %></td>
